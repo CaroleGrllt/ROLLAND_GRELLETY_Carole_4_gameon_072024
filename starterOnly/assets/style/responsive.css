@@ -1,0 +1,211 @@
+/* 
+  @media screen and (max-width: 800px) {
+    .hero-section {
+      display: block;
+      box-shadow: unset;
+    }
+    .hero-content {
+      background: #fff;
+      color: #000;
+      padding: 20px;
+    }
+    .hero-content::after {
+      content: unset;
+    }
+    .hero-content .btn-signup {
+      display: none;
+    }
+    .hero-headline {
+      font-size: 4.5rem;
+      white-space: normal;
+    }
+    .hero-text {
+      width: unset;
+      font-size: 1.5rem;
+    }
+    .hero-img img {
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+    .hero-section > .btn-signup {
+      display: block;
+      margin: 32px auto 10px;
+      padding: 12px 35px;
+    }
+    .copyrights {
+      margin-top: 50px;
+      text-align: center;
+    }
+  } */
+
+
+  @media (max-width: 1023.98px) {
+    .hero-content {
+      min-width: unset;
+    }
+  
+    .hero-headline {
+      font-size: 75px;
+    }
+  
+    .hero-text {
+      width: 250%;
+    }
+  }
+  
+  @media screen and (max-width: 767.98px) {
+
+/*-*-* HEADER *-*-*/
+
+    .topnav.responsive {
+      position: relative;
+    }
+  
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+      margin: 0;
+    }
+
+    .header-logo {
+      width: 160px;
+      height: 26px;
+      top: 33px;
+      left: 30px;
+    }
+  
+    .header-logo img {
+      width: 100%
+    }
+
+    .topnav {
+      margin-top: 33px;
+      overflow: unset;
+    }
+  
+    .topnav a {
+      display: none;
+    }
+  
+    .topnav a.icon {
+      float: right;
+      display: block;
+      margin-top: -10px;
+    }
+
+    .fa-bars {
+      font-size: 20px !important;
+    }
+  
+    .main-navbar {
+      float: none;
+    }
+
+    .main-navbar a:nth-child(1) {
+      margin-top: 40px;
+    }
+
+/*-*-* MAIN *-*-*/
+
+    .hero-section {
+      display: block;
+      box-shadow: unset;
+    }
+  
+    .hero-content {
+      background: #fff;
+      color: #000;
+      padding: 0;
+      min-width: unset;
+    }
+  
+    .hero-content::after {
+      content: unset;
+    }
+  
+    .hero-content .btn-signup {
+      display: none;
+    }
+  
+    .hero-img img {
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+  
+    .hero-section>.btn-signup {
+      display: block;
+      margin: 32px auto 10px;
+      padding: 12px 35px;
+    }
+  
+    .hero-headline {
+      font-weight: 500;
+      line-height: 52px;
+      letter-spacing: 0px;
+      text-align: left;
+      font-size: calc(2.6rem + 2vw);
+      white-space: normal;
+    }
+  
+    .hero-text {
+      font-weight: 400;
+      line-height: 17px;
+      letter-spacing: 0px;
+      text-align: left;
+      width: unset;
+      margin-top: 17px;
+      font-size: 18px;
+    }
+
+/*-*-* MODALE *-*-*/
+
+    .content {
+      margin-top: 80px;
+    }
+
+  
+/*-*-* FOOTER *-*-*/
+     
+    .copyrights {
+      margin: 0 0 30px;
+      text-align: center;
+    }
+  }
+  
+  
+  
+  @media screen and (max-width: 599.98px) {  
+    
+    .content {
+      min-width: 100%;
+      margin: 80px 0 0;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      min-height: 92%;
+    }
+
+    .modal-body {
+      padding: 5% 8%;
+      justify-content: flex-start;
+      margin: 0;
+    }
+
+    .tournoi-choix {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .modal-text {
+      padding-top: 300px;
+      padding-bottom: 350px;
+    }
+  }
