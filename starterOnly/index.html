@@ -60,7 +60,9 @@
             <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
               <div class="formData">
                 <label for="first">Prénom</label><br>
-                <input class="text-control" type="text" id="first" name="first" minlength="2">
+                <input class="text-control" type="text" id="first" name="first" 
+                minlength="2"
+                >
                 <small id="error-message-first" class="error-message">Veuillez entrer votre prénom</small>
               </div>
               <div class="formData">
@@ -81,7 +83,7 @@
               <div class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
-                <small id="error-message-quantity" class="error-message">Veuillez sélectionner une option</small>
+                <small id="error-message-quantity" class="error-message">Veuillez choisir un nombre entre 0 et 99</small>
               </div>
               <p class="text-label">
                 A quel tournoi souhaitez-vous participer cette année ?
@@ -131,7 +133,7 @@
                 <input class="checkbox-input" type="checkbox" id="checkbox2">
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je ne souhaite être prévenu(e) des prochains événements.
+                  Je souhaite être prévenu(e) des prochains événements.
                 </label>
                 <br>
               </div>
