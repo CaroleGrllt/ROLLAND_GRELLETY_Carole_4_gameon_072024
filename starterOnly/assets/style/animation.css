@@ -5,15 +5,17 @@
   }
   to {
     opacity: 1;
+    transform: translateY(0%);
   }
 }
 
 @keyframes modalclose {
   from {
     opacity: 1;
-    transform: translateY(-150px);
+    transform: translateY(0%);
   }
   to {
     opacity: 0;
+    transform: translateY(-100%);
   }
 }
