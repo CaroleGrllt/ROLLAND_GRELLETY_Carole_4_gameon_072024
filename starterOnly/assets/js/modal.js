@@ -30,8 +30,6 @@ const contentConfirm  = document.querySelector(".modal-content");
 const closeBtnSecond  = document.querySelector(".modalsecond-close-btn");
 const closeModalBtn   = document.querySelector(".btn-close");
 
-
-
 //FONCTIONS 
 // ---- Ouverture de la première modale
 function launchModal() {
@@ -179,7 +177,6 @@ function isCheckboxChecked(input) {
   return true;  
   
 }
-
 
 // ---- validation du formulaire
 function validate() {

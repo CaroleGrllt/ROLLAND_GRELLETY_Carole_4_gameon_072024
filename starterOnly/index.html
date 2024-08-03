@@ -58,30 +58,30 @@
           <span class="close modalfirst-close-btn"></span>
           <div class="modal-body">
             <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
-              <div class="formData first" data-error="Vous devez entrer votre prénom (minimum 2 caractères)" data-error-visible="false">
+              <div class="formData first" data-error="Veuillez entrer votre prénom (2 caractères minimum)" data-error-visible="false">
                 <label for="first">Prénom</label><br>
                 <input class="text-control" type="text" id="first" name="first" minlength="2">
               </div>
-              <div class="formData last" data-error="Vous devez entrer votre nom de famille" data-error-visible="false">
+              <div class="formData last" data-error="Veuillez entrer votre nom de famille" data-error-visible="false">
                 <label for="last">Nom</label><br>
                 <input class="text-control" type="text" id="last" name="last">
               </div>
-              <div class="formData email" data-error="Vous devez entrer votre email" data-error-visible="false">
+              <div class="formData email" data-error="Veuillez entrer une adresse email valide" data-error-visible="false">
                 <label for="email">E-mail</label><br>
                 <input class="text-control" type="email" id="email" name="email">
               </div>
-              <div class="formData birthdate" data-error="Vous devez entrer votre date de naissance" data-error-visible="false">
+              <div class="formData birthdate" data-error="Veuillez entrer votre date de naissance" data-error-visible="false">
                 <label for="birthdate">Date de naissance</label><br>
                 <input class="text-control" type="date" id="birthdate" name="birthdate">
               </div>
-              <div class="formData quantity" data-error="Vous devez entrer une quantité valide" data-error-visible="false">
+              <div class="formData quantity" data-error="Veuillez entrer une quantité valide (entre 0 et 99)" data-error-visible="false">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">
                 A quel tournoi souhaitez-vous participer cette année ?
               </p>
-              <div class="formData tournoi-choix" data-error="Vous devez entrer un tournoi" data-error-visible="false">
+              <div class="formData tournoi-choix" data-error="Veuillez choisir une option" data-error-visible="false">
                 <input class="checkbox-input" type="radio" id="location1" name="location" value="New York">
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
@@ -113,8 +113,7 @@
                   Portland
                 </label>
               </div>
-
-              <div class="formData cgu" data-error="Vous devez accepter les CGU" data-error-visible="false">
+              <div class="formData cgu" data-error="Vous devez accepter les termes et conditions d'utilisation" data-error-visible="false">
                 <input class="checkbox-input" type="checkbox" id="checkbox1">
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
