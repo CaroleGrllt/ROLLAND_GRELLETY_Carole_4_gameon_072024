@@ -58,37 +58,30 @@
           <span class="close modalfirst-close-btn"></span>
           <div class="modal-body">
             <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
-              <div class="formData">
+              <div class="formData first" data-error="Vous devez entrer votre prénom (minimum 2 caractères)" data-error-visible="false">
                 <label for="first">Prénom</label><br>
-                <input class="text-control" type="text" id="first" name="first" 
-                minlength="2"
-                >
-                <small id="error-message-first" class="error-message">Veuillez entrer votre prénom</small>
+                <input class="text-control" type="text" id="first" name="first" minlength="2">
               </div>
-              <div class="formData">
+              <div class="formData last" data-error="Vous devez entrer votre nom de famille" data-error-visible="false">
                 <label for="last">Nom</label><br>
                 <input class="text-control" type="text" id="last" name="last">
-                <small id="error-message-last" class="error-message">Veuillez entrer votre nom de famille</small>
               </div>
-              <div class="formData">
+              <div class="formData email" data-error="Vous devez entrer votre email" data-error-visible="false">
                 <label for="email">E-mail</label><br>
                 <input class="text-control" type="email" id="email" name="email">
-                <small id="error-message-email" class="error-message">Veuillez entrer une adresse mail valide</small>
               </div>
-              <div class="formData">
+              <div class="formData birthdate" data-error="Vous devez entrer votre date de naissance" data-error-visible="false">
                 <label for="birthdate">Date de naissance</label><br>
                 <input class="text-control" type="date" id="birthdate" name="birthdate">
-                <small id="error-message-birthdate" class="error-message">Veuillez entrer une date de naissace valide</small>
               </div>
-              <div class="formData">
+              <div class="formData quantity" data-error="Vous devez entrer une quantité valide" data-error-visible="false">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
-                <small id="error-message-quantity" class="error-message">Veuillez choisir un nombre entre 0 et 99</small>
               </div>
               <p class="text-label">
                 A quel tournoi souhaitez-vous participer cette année ?
               </p>
-              <div class="formData tournoi-choix">
+              <div class="formData tournoi-choix" data-error="Vous devez entrer un tournoi" data-error-visible="false">
                 <input class="checkbox-input" type="radio" id="location1" name="location" value="New York">
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
@@ -118,18 +111,16 @@
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
                   Portland
-                </label><br>
-                <small id="error-message-location" class="error-message">Veuillez sélectionner un événement</small>
+                </label>
               </div>
 
-              <div class="formData">
+              <div class="formData cgu" data-error="Vous devez accepter les CGU" data-error-visible="false">
                 <input class="checkbox-input" type="checkbox" id="checkbox1">
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
-                <small id="error-message-checkbox" class="error-message">Veuillez accepter les CGU</small>
                 <input class="checkbox-input" type="checkbox" id="checkbox2">
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
