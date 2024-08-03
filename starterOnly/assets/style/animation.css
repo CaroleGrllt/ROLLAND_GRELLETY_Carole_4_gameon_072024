@@ -8,7 +8,7 @@
   }
 }
 
-/* @keyframes modalclose {
+@keyframes modalclose {
   from {
     opacity: 1;
     transform: translateY(-150px);
@@ -16,4 +16,4 @@
   to {
     opacity: 0;
   }
-} */
+}

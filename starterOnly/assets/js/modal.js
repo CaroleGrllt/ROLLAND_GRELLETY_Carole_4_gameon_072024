@@ -32,6 +32,7 @@ const locationInputsSpan    = document.querySelectorAll('.checkbox-icon')
 const locationInputsError   = document.getElementById("error-message-location");
 const checkboxInput         = document.getElementById("checkbox1");
 const checkboxInputError    = document.getElementById("error-message-checkbox");
+const checkboxInput2        = document.getElementById("checkbox2");
 
 
 // ---- deuxième modale : ouverture / fermeture
@@ -49,17 +50,45 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 function launchModal() {
   modalBg.style.display = "block";
-  // content.classList.remove("close-modal");
+  content.classList.remove("close-modal");
 }
 
-// ---- Fermeture de la première modale
+// ---- Fermeture de la première modale (clic croix) et nettoyage du formulaire
+function clearInputs() {
+  firstInput.value = ""
+  lastInput.value = ""
+  emailInput.value = ""
+  birthdateInput.value = ""
+  quantityInput.value = ""
+  locationInputs.forEach((locationInput) => {
+    locationInput.checked = false
+  })
+  checkboxInput.checked = false
+  checkboxInput2.checked = false
+}
 
-// closeBtnFirst.addEventListener("click", closeModal);
+closeBtnFirst.addEventListener("click", closeModal);
 
-// function closeModal() {
-//   content.classList.add("close-modal");
-//   modalBg.style.display = 'none'
-// }
+function closeModal() {
+  content.classList.add("close-modal");
+  modalBg.style.display = 'none'
+  clearInputs()
+}
+
+// ---- Ouverture de la seconde modale
+function displaySecondModal() {
+  modalBgConfirm.style.display = "block";
+  contentConfirm.classList.remove("close-modal");
+}
+
+// ---- Fermeture de la seconde modale (clic croix)
+closeBtnSecond.addEventListener("click", closeSecondModal);
+closeModalBtn.addEventListener("click", closeSecondModal);
+
+function closeSecondModal() {
+  contentConfirm.classList.add("close-modal");
+  modalBgConfirm.style.display = 'none'
+}
 
 
 // ---- validation du formulaire : vérification des données entrées
@@ -240,7 +269,10 @@ function validate() {
 
   if(validForm) {
     console.log("On peut valider ce formulaire")
-
+    closeModal()
+    event.preventDefault()
+    displaySecondModal()
+    
     return true
   } else {
     console.log("On ne peut pas valider ce formulaire")
