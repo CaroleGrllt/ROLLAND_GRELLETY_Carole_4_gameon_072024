@@ -82,114 +82,82 @@ function closeModal() {
 }
 
 // ---- validation du formulaire : vérification des données entrées
-// --------prénom
-function isValidFirstname(input) {
-  const firstnameRegexp = /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,}$/;
-  if (!firstnameRegexp.test(input.value) || input ==="") {
-    firstError.setAttribute('data-error-visible', 'true')
-    console.log("false prénom")
-    return false;
-  } else {
-    firstError.setAttribute('data-error-visible', 'false')
-    console.log('true prénom')
-    return true;
-  }
-}
+// --------Regex
+const firstnameRegexp = /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,}$/;
+const lastnameRegexp = /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{1,}$/;
+const emailRegexp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const dateRegex = /^(19|20)\d\d-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+const numberRegexp = /^(?:[0-9]|[1-9][0-9])$/; // le nombre doit être compris entre 0 et 99
 
-// --------nom
-function isValidLastname(input) {
-  const lastnameRegexp = /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{1,}$/;
-  if (!lastnameRegexp.test(input.value) || input ==="") {
-    lastError.setAttribute('data-error-visible', 'true')
-    console.log("false nom")
+// --------prénom, nom, email
+function isValidInput(regex,input,error) {
+  if (!regex.test(input.value) || input ==="") {
+    error.setAttribute('data-error-visible', 'true')
     return false;
   } else {
-    lastError.setAttribute('data-error-visible', 'false')
-    console.log('true nom')
-    return true;
-  }
-}
-
-// --------email
-function isValidEmail(input) {
-  const emailRegexp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  if (!emailRegexp.test(input.value) || input ==="") {
-    emailError.setAttribute('data-error-visible', 'true')
-    console.log("false email")
-    return false;
-  } else {
-    emailError.setAttribute('data-error-visible', 'false')
-    console.log('true email')
+    error.setAttribute('data-error-visible', 'false')
     return true;
   }
 }
 
 // --------date
-function isValidDateOfBirth(input) {
-  const dateRegex = /^(19|20)\d\d-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+function isValidDateOfBirth(regex,input,error) {
   const dateOfBirth = new Date(input.value);
   const today = new Date();
-  if (!dateRegex.test(input.value) || dateOfBirth >= today || input === "") {
-    birthdayError.setAttribute('data-error-visible', 'true')
-    console.log("false regex, futur ou vide")
+  if (!regex.test(input.value) || dateOfBirth >= today || input === "") {
+    error.setAttribute('data-error-visible', 'true')
     return false;
   }
-  birthdayError.setAttribute('data-error-visible', 'false')
-  console.log('true date')
+  error.setAttribute('data-error-visible', 'false')
   return true;
 }
 
 // --------Quantité
-function isValidQuantity(input) {
-  const numberRegexp = /^(?:[0-9]|[1-9][0-9])$/; // le nombre doit être compris entre 0 et 99
-  if(input==="" || isNaN(input.value) || !numberRegexp.test(input.value)) {
-    quantityError.setAttribute('data-error-visible', 'true')
-    console.log("false quantité")
+function isValidQuantity(regex,input,error) {
+  if(input==="" || isNaN(input.value) || !regex.test(input.value)) {
+    error.setAttribute('data-error-visible', 'true')
     return false;
   } else {
-    quantityError.setAttribute('data-error-visible', 'false')
-    console.log('true quantité')
+    error.setAttribute('data-error-visible', 'false')
     return true;
   }
 }
 
 // --------Radios
-function isRadioSelected(locationInputs) {
-  console.log(locationInputs)
-    for(let i = 0; i< locationInputs.length; i++) {
-      if(locationInputs[i].checked) {
-        radioError.setAttribute('data-error-visible', 'false')
-        console.log('true radio')
-        return true;
+function isRadioSelected(inputs,error) {
+    for(let i = 0; i< inputs.length; i++) {
+      if(inputs[i].checked) {
+        error.setAttribute('data-error-visible', 'false')
+        return {
+          "prop_1": true,
+          "prop_2": inputs[i].value
+        };
       } 
     }
-    radioError.setAttribute('data-error-visible', 'true')
-    console.log("false radio")
+    error.setAttribute('data-error-visible', 'true')
     return false;
 }
 
 // --------Checkbox
-function isCheckboxChecked(input) {
+function isCheckboxChecked(input,error) {
   if(!input.checked) {
-    cguError.setAttribute('data-error-visible', 'true')
-    console.log("false checkbox")
+    error.setAttribute('data-error-visible', 'true')
     return false
   }
-  cguError.setAttribute('data-error-visible', 'false')
-  console.log("true checkbox")
+  error.setAttribute('data-error-visible', 'false')
   return true;  
   
 }
 
 // ---- validation du formulaire
 function validate() {
-  const validFirstname   = isValidFirstname(firstInput);
-  const validLastname    = isValidLastname(lastInput);
-  const validEmail       = isValidEmail(emailInput);
-  const validDateOfBirth = isValidDateOfBirth(birthdateInput);
-  const validQuantity    = isValidQuantity(quantityInput);
-  const selectedRadio    = isRadioSelected(locationInputs);
-  const checkedCheckbox  = isCheckboxChecked(checkboxInput);
+  const validFirstname   = isValidInput(firstnameRegexp,firstInput,firstError);
+  const validLastname    = isValidInput(lastnameRegexp,lastInput,lastError);
+  const validEmail       = isValidInput(emailRegexp,emailInput,emailError);
+  const validDateOfBirth = isValidDateOfBirth(dateRegex,birthdateInput,birthdayError);
+  const validQuantity    = isValidQuantity(numberRegexp,quantityInput,quantityError);
+  const selectedRadio    = isRadioSelected(locationInputs,radioError);
+  const checkedCheckbox  = isCheckboxChecked(checkboxInput,cguError);
 
   function isValidForm() {
     if(validFirstname && validLastname && validEmail && validDateOfBirth && validQuantity && selectedRadio && checkedCheckbox) {
@@ -200,17 +168,26 @@ function validate() {
   }
 
   const validForm = isValidForm();
-  console.log(validForm)
 
   if(validForm) {
-    console.log("On peut valider ce formulaire")
+    let val = selectedRadio
+    console.log(
+      "Prénom : " + firstInput.value + " / ", 
+      "Nom : " + lastInput.value + " / ", 
+      "Email : " + emailInput.value + " / ", 
+      "Date de naissance : " + birthdateInput.value + " / ",
+      "Nombre de tournoi : " + quantityInput.value + " / ",
+      "Choix ville : " + val.prop_2 + " / ",
+      "Validation CGU : " + checkedCheckbox + " / ",
+      "Inscription newsletter : " + checkboxInput2.checked
+    )
+
     closeModal()
     event.preventDefault()
     displaySecondModal()
     
     return true
   } else {
-    console.log("On ne peut pas valider ce formulaire")
     return false
   }
 }
@@ -224,25 +201,25 @@ closeModalBtn.addEventListener("click", closeModal);
 
 // --------Formulaire
 firstInput.addEventListener("change", function() {
-  isValidFirstname(firstInput);
+  isValidInput(firstnameRegexp,firstInput,firstError);
 });
 lastInput.addEventListener("change", function() {
-  isValidLastname(lastInput);
+  isValidInput(lastnameRegexp,lastInput,lastError);
 });
 emailInput.addEventListener("change", function() {
-  isValidEmail(emailInput);
+  isValidInput(emailRegexp,emailInput,emailError);
 });
 birthdateInput.addEventListener("change", function() {
-  isValidDateOfBirth(birthdateInput);
+  isValidDateOfBirth(dateRegex,birthdateInput,birthdayError);
 });
 quantityInput.addEventListener("change", function() {
-  isValidQuantity(quantityInput);
+  isValidQuantity(numberRegexp,quantityInput,quantityError);
 });
 locationInputs.forEach((locationInput) =>{
   locationInput.addEventListener("change", function() {
-    isRadioSelected(locationInputs);
+    isRadioSelected(locationInputs,radioError);
   })
 });
 checkboxInput.addEventListener("change", function() {
-  isCheckboxChecked(checkboxInput);
+  isCheckboxChecked(checkboxInput,cguError);
 });
